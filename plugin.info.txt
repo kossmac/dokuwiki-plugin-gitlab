@@ -1,0 +1,7 @@
+base   gitlab
+author Karsten Kosmala
+email  kosmalakarsten@gmail.com
+date   2014-11-05
+name   GitLab Plugin
+desc   Resolves GitLab comits to commit messages and links to it
+url    http://dokuwiki.org/plugin:gitlab
