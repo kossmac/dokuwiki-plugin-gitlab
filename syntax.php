@@ -16,7 +16,7 @@ class syntax_plugin_gitlab extends DokuWiki_Syntax_Plugin {
         $this->Lexer->addSpecialPattern('\[\[gitlabapi>[a-zA-Z0-9.-]+>[a-z0-9]+\]\]', $mode, 'plugin_gitlab');
     }
 
-    public function handle($match, $state, $pos, Doku_Handler &$handler) {
+    public function handle($match, $state, $pos, Doku_Handler $handler) {
         list($name, $repository_name, $commit_id) = explode('>', $match);
         $commit_id_short = substr($commit_id, 0, -2);
         list($repository_id, $web_url)= $this->getInfoByName($repository_name);
@@ -25,7 +25,7 @@ class syntax_plugin_gitlab extends DokuWiki_Syntax_Plugin {
         return array($web_url, $commit_id_long, $commit_msg);
     }
 
-    public function render($mode, Doku_Renderer &$renderer, $data) {
+    public function render($mode, Doku_Renderer $renderer, $data) {
     // $data is what the function handle return'ed.
         if($mode == 'xhtml'){
             /** @var Doku_Renderer_xhtml $renderer */
